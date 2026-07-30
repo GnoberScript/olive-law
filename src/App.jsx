@@ -32,6 +32,7 @@ const STORAGE = {
   fontSize: "counsel-desk-font-size",
   research: "olives-law-research",
   freeNotes: "olives-law-free-notes",
+  lastArticle: "olives-law-last-article",
 };
 
 const documents = [
@@ -75,7 +76,11 @@ const highlight = (text, query) => {
 };
 
 function App() {
-  const [activeRoman, setActiveRoman] = useState(() => location.hash.match(/article-([ivx]+)/)?.[1]?.toUpperCase() || "III");
+  const [activeRoman, setActiveRoman] = useState(() => {
+    const directArticle = location.hash.match(/^#article-(preamble|[ivx]+)$/i)?.[1]?.toUpperCase();
+    const savedArticle = loadStored(STORAGE.lastArticle, "I");
+    return directArticle || (documents.some((article) => article.roman === savedArticle) ? savedArticle : "I");
+  });
   const [query, setQuery] = useState("");
   const [submittedQuery, setSubmittedQuery] = useState("");
   const [articleFilter, setArticleFilter] = useState("ALL");
@@ -131,6 +136,10 @@ function App() {
   useEffect(() => {
     localStorage.setItem(STORAGE.freeNotes, JSON.stringify(freeNotes));
   }, [freeNotes]);
+
+  useEffect(() => {
+    localStorage.setItem(STORAGE.lastArticle, JSON.stringify(activeRoman));
+  }, [activeRoman]);
 
   useEffect(() => {
     const shortcut = (event) => {
@@ -283,7 +292,7 @@ function App() {
         <button className="icon-button mobile-only" onClick={() => setOutlineOpen(true)} aria-label="Open contents">
           <Menu size={20} />
         </button>
-        <button className="brand" onClick={() => goToArticle("III")} aria-label="Olive's Law Firm home">
+        <button className="brand" onClick={() => goToArticle("I")} aria-label="Olive's Law Firm home">
           <span className="brand-seal">OL</span>
           <span>
             <strong>Olive’s</strong>

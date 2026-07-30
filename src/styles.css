@@ -5,13 +5,13 @@
   --navy-2: #29483a;
   --red: #426b54;
   --red-soft: #e8efe9;
-  --ink: #1c2521;
-  --muted: #6d7771;
-  --line: #dfe5df;
-  --paper: #fffefb;
-  --canvas: #f2f4f0;
-  --panel: #f8faf7;
-  --white: #fff;
+  --ink: #202722;
+  --muted: #68716b;
+  --line: #d4cfc1;
+  --paper: #f0eadc;
+  --canvas: #e3ded1;
+  --panel: #e9e3d6;
+  --white: #f0eadc;
   --reader-size: 18px;
   font-family: "Manrope", system-ui, sans-serif;
   color: var(--ink);
@@ -64,7 +64,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, a:focus-visible
 .brand strong { font: 600 19px "Newsreader", serif; }
 .brand small { margin-top: 2px; color: #b4c2ce; font-size: 10px; letter-spacing: .15em; text-transform: uppercase; }
 
-.global-search { height: 44px; display: flex; align-items: center; gap: 10px; padding: 0 11px 0 14px; background: #ffffffee; color: #697681; border: 1px solid #ffffff3b; border-radius: 13px; box-shadow: 0 8px 28px #07110c40; transition: box-shadow .2s, transform .2s; }
+.global-search { height: 44px; display: flex; align-items: center; gap: 10px; padding: 0 11px 0 14px; background: #ebe5d8; color: #69736c; border: 1px solid #ffffff1f; border-radius: 13px; box-shadow: 0 8px 28px #07110c40; transition: box-shadow .2s, transform .2s; }
 .global-search:focus-within { box-shadow: 0 10px 34px #07110c66, 0 0 0 3px #a8c69a33; transform: translateY(-1px); }
 .global-search input { width: 100%; color: #1c2934; background: transparent; border: 0; outline: 0; font-size: 13px; }
 .global-search kbd, .tip kbd { padding: 3px 6px; color: #73808a; background: #edf0f1; border: 1px solid #d7dcdf; border-radius: 4px; font: 10px "DM Sans", sans-serif; white-space: nowrap; }
